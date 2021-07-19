@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>{{ template "title" . }}</title>
+    <style>
+
+    .body{
+    background-color:#696969;
+}
+
+.black_color{
+  background-color:#696969;
+}
+.special_color{
+    background-color: #DCDCDC;
+}
+.mycolor{
+  background-color: #FFFFE0;
+}
+.grid-container {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: auto auto auto;
+    background-color: grey;
+    padding: 10px;
+  }
+  
+  .grid-item {
+    background-color: #32CD32;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .grid-item2 {
+    background-color: #B22222;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+    </style>
+  </head>
+  <body>
+    {{ template "content" . }}
+  </body>
+  {{ block "sidebar" .}}{{end}}
+</html>

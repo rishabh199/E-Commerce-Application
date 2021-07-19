@@ -1,0 +1,68 @@
+{{ define "title" }}Home{{ end }}
+
+{{ define "content" }}
+    <div class="grid-container">
+    {{range . }}
+    <div class="grid-item">
+        <h3> {{.ProductName}}</h3>
+        <img src="{{.ProductImg}}">
+        <h5>Rs.{{.ProductPrice}} </h5>
+        <h6>In stock : {{.ProductQty}} </h6>
+        
+        <form action="/cart" method="POST">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="0" max="100" step="1" value="1">
+            <input type="hidden" id="product_id" name="product_id" value={{.Id}}>
+            <input type="submit" value="Submit">
+        </form>
+     
+  
+    </div>
+    {{end}}
+ 
+    </div>
+{{ end }}
+
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        background-color: #2196F3;
+        padding: 10px;
+      }
+      .grid-item {
+          background-color: rgba(255, 255, 255, 0.8);
+          border: 1px solid rgba(0, 0, 0, 0.8);
+          padding: 20px;
+          font-size: 30px;
+          text-align: center;
+        }
+
+
+        {{define "login"}}
+<!DOCTYPE>
+<html>
+    <title>Urban kart</title>
+    
+    <body style="color:rgb(9, 10, 10);font-family:courier;font-size:20px;background-size: cover;width:500;border: 40px solid rgb(27, 210, 223);align-content: center;text-align: center;">
+      <center><strong><h1 style="color:rgb(224, 24, 24);font-size: 50px;text-align: left;border: 20px solid tomato;">Welcome to Urban Kart😊</h1></strong></center><hr>
+<center>
+  <div></div><div></div>
+  <img src=http://goi2l15njka4zxbg462znzuu.wpengine.netdna-cdn.com/wp-content/uploads/2017/09/ecommerce-cart-gif.gif alt="Urban cart logo" style="width:150px;height:150px;">
+<form action="/login" target="_blank" autocomplete="on" name="login" method="POST">
+  <fieldset>
+    <legend>Login</legend>
+  <label for="Name">Userame:   </label>
+  <input type="text" id="name" name="username"  required autofocus><br><br>
+  <label for="Mob">Password : </label>
+  <input type="text" id="password" name="password" required><br><br>
+  <br>
+  <button type="submit" value="sumit">Submit</button>
+  <button type="button" onclick="alert('Enter Proper credentials')">Login as ADMIN!</button>
+  <br><input type="reset">
+  </fieldset>
+</form>
+</center>
+</body>
+</html>
+{{end}}

@@ -1,0 +1,64 @@
+{{ define "title" }}cart{{ end }}
+
+{{ define "content" }}
+
+
+
+
+<div class="card">
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>Shopping Cart</b></h4>
+                    </div>
+                    <div class="col align-self-center text-right text-muted">COUNT items</div>
+                </div>
+            </div>
+            {{$variable := 0}}
+             {{range . }}
+              
+            <div class="row border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-2"><img class="img-fluid" src="{{.ProductImg}}"></div>
+                    <div class="col">
+                        
+                        <div class="row">{{.ProductName}}</div>
+                    </div>
+                    <div class="col"> <a href="#">-</a><a href="#" class="border">{{.ProductQty}}</a><a href="/cart">+</a> </div>
+                    <div class="col">Rs. {{.ProductPrice}}<span class="close">&#10005;</span></div>
+                </div>
+            </div>
+            {{end}}
+
+            <div class="back-to-shop"><a href="/products">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+            <div>
+            <a href="/emptycart" target="_blank">Empty</a>  
+            </div>
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Summary</b></h5>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col" style="padding-left:0;">ITEMS COUNT</div>
+                <div class="col text-right">Rs.TO BE CALCULATED</div>
+            </div>
+            <form>
+                <p>SHIPPING</p> <select>
+                    <option class="text-muted">Standard-Delivery- Rs.50.00</option>
+                </select>
+                <p>GIVE CODE</p> <input id="code" placeholder="Enter your code">
+            </form>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">TOTAL PRICE</div>
+                <div class="col text-right">Rs. TO BE DISPLAYED</div>
+            </div><a href="/prepayment"> <button class="btn">CHECKOUT</button></a>
+        </div>
+    </div>
+</div>
+
+
+{{end}}
